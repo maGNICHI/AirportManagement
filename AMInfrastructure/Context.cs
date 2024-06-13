@@ -32,6 +32,8 @@ namespace AM.Infrastructure
                 fullName.Property(f => f.LastName).HasColumnName("FullNameLast");
             });
             modelBuilder.ApplyConfiguration(new PlaneConfiguration());
+            modelBuilder.ApplyConfiguration(new TicketConfiguration());
+
             base.OnModelCreating(modelBuilder);
         }
         
@@ -40,6 +42,7 @@ namespace AM.Infrastructure
         public DbSet<Plane> Planes { get; set; }
         public DbSet<Staff> Staffes { get; set; }
         public DbSet<Traveller> Travellers { get; set; }
+        public DbSet<Ticket> Tickets { get; set; }
     }
     
 }

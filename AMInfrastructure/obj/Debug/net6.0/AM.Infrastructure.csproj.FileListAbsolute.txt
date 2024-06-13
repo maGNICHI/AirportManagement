@@ -15,3 +15,4 @@ C:\Users\MSI\Documents\AirportManagement\AMInfrastructure\obj\Debug\net6.0\AM.In
 C:\Users\MSI\Documents\AirportManagement\AMInfrastructure\obj\Debug\net6.0\ref\AM.Infrastructure.dll
 C:\Users\MSI\Documents\AirportManagement\AMInfrastructure\bin\Debug\net6.0\AM.Infrastructure.runtimeconfig.json
 C:\Users\MSI\Documents\AirportManagement\AMInfrastructure\obj\Debug\net6.0\AM.Infrastructure.genruntimeconfig.cache
+C:\Users\MSI\Documents\AirportManagement\AMInfrastructure\obj\Debug\net6.0\AM.Infrastructure.sourcelink.json

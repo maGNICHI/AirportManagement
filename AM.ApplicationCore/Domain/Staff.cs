@@ -7,16 +7,25 @@ using System.Threading.Tasks;
 
 namespace AM.ApplicationCore.Domain
 {
-    public class Staff : Passenger
+    public class Staff: Passenger
     {
-        public DateTime EmployementDate { get; set; }
         public string Function { get; set; }
-        [Range(0,Double.MaxValue, ErrorMessage = "le Salaire doit etre une valeur positive ")]
-        public double Salary { get; set; }
-        public override string PassengerType { get { return "Staff passenger type"; } }
+        public DateTime EmployementDate { get; set; }
+        [DataType(DataType.Currency)]
+        public float Salary { get; set; }
+
+        //TP1-Q6: Réimplémenter la méthode ToString()
         public override string ToString()
         {
-            return base.ToString() + $" -- Function : {Function}";
+            base.ToString();
+            return "Function: " + Function + " EmployementDate : " + EmployementDate + " Salary: " + Salary;
+        }
+
+        //TP1-Q11.b: Réimplémenter la méthode PassengerType()
+        public override void PassengerType()
+        {
+            base.PassengerType();
+            Console.WriteLine("and I'm a staff member");
         }
     }
 }

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<AM.ApplicationCore.Domain.Ticket>
+
+<h1>Index</h1>
+<form asp-action="index">
+    <fieldset>
+        <legend> Recherche</legend>
+        Saisir un prix :
+        <input type="text" name="prix" />
+        <input type="submit" value="Recherchez" />
+    </fieldset>
+</form>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Prix)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Siege)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VIP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Passenger)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Flignt)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prix)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Siege)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VIP)
+            </td>
+            <td>
+                    <a asp-controller="Passenger" asp-action="_Details"
+                   asp-route-id=@item.PassengerFK> @item.Passenger.FullName.FirstName</a>
+                </td>
+            <td>
+                    <a asp-controller="Flight" asp-action="_Details"
+                   asp-route-id=@item.FlightFK> @item.Flignt.FlightId</a>
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new {PassengerFK=item.PassengerFK, FlightFK=item.FlightFK, TicketNbre=item.TicketNbre}) |
+                    @Html.ActionLink("Details", "Details", new { PassengerFK=item.PassengerFK, FlightFK=item.FlightFK, TicketNbre=item.TicketNbre }) |
+                    @Html.ActionLink("Delete", "Delete", new { PassengerFK=item.PassengerFK, FlightFK=item.FlightFK, TicketNbre=item.TicketNbre })
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

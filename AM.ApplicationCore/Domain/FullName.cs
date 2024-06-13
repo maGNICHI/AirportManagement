@@ -9,15 +9,12 @@ namespace AM.ApplicationCore.Domain
 {
     public class FullName
     {
-       
-        [MaxLength(300)]
+        [MaxLength(25, ErrorMessage ="Longeur maximale 25")]
+        [MinLength(3)]
+        [RegularExpression(@"^[a-zA-Z]{3,25}$", ErrorMessage = "Invalid Phone Number!")]
         public string FirstName { get; set; }
-        [MaxLength(300)]
+        [MaxLength(25)]
+        [MinLength(3)]
         public string LastName { get; set; }
-        public override string ToString()
-        {
-            return $"{FirstName} {LastName}";
-        }
-
     }
 }
